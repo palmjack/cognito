@@ -41,9 +41,7 @@ export const authOptions: NextAuthOptions = {
       if (url.startsWith(baseUrl)) return url;
       // This is the beef:
       if (url === "signOut") {
-        const ssoLogoutUrl = `${env.COGNITO_LOGOUT_URL}${
-          env.COGNITO_CLIENT_ID
-        }&logout_uri=${encodeURIComponent(env.NEXTAUTH_URL)}`;
+        const ssoLogoutUrl = `${env.COGNITO_LOGOUT_URL}${env.COGNITO_CLIENT_ID}&logout_uri=${env.NEXTAUTH_URL}`;
         return ssoLogoutUrl;
       }
       // Allows relative callback URLs
