@@ -2,7 +2,7 @@ import { type GetServerSidePropsContext } from "next";
 import {
   getServerSession,
   type NextAuthOptions,
-  type DefaultSession,
+  // type DefaultSession,
 } from "next-auth";
 import CognitoProvider from "next-auth/providers/cognito";
 import { env } from "~/env.mjs";
@@ -41,7 +41,7 @@ export const authOptions: NextAuthOptions = {
       if (url.startsWith(baseUrl)) return url;
       // This is the beef:
       if (url === "signOut") {
-        const ssoLogoutUrl = `https://alab.auth.eu-west-3.amazoncognito.com/logout?client_id=${
+        const ssoLogoutUrl = `${env.COGNITO_LOGOUT_URL}${
           env.COGNITO_CLIENT_ID
         }&logout_uri=${encodeURIComponent(env.NEXTAUTH_URL)}`;
         return ssoLogoutUrl;

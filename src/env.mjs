@@ -20,6 +20,7 @@ const server = z.object({
   COGNITO_CLIENT_ID: z.string().min(1),
   COGNITO_CLIENT_SECRET: z.string().min(1),
   COGNITO_ISSUER: z.string().url(),
+  COGNITO_LOGOUT_URL: z.string().url(),
 });
 
 /**
@@ -43,6 +44,7 @@ const processEnv = {
   COGNITO_CLIENT_ID: process.env.COGNITO_CLIENT_ID,
   COGNITO_CLIENT_SECRET: process.env.COGNITO_CLIENT_SECRET,
   COGNITO_ISSUER: process.env.COGNITO_ISSUER,
+  COGNITO_LOGOUT_URL: process.env.COGNITO_LOGOUT_URL,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
